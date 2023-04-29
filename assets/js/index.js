@@ -113,7 +113,6 @@ function loginSubmit() {
             l_pass_err.removeClass('err-true')
         }
 }
-
 registerBtn.click(registerSubmit);
 
 loginBtn.click(loginSubmit);
