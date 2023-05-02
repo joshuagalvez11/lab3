@@ -101,7 +101,7 @@ function submitForm(event) {
         document.body.classList.remove('bad-form')
         //alert using template literal for formatting
         post = 
-`My Name: ${myName.innerHTML.innerHTML}
+`My Name: ${myName.innerHTML}
 ${myId.innerHTML}
 My Major: ${myMajor.innerHTML}
 
