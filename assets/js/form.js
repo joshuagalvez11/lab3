@@ -11,6 +11,8 @@ let hours = document.getElementById("hours")
 let hoursErr = document.getElementById("hours-err")
 let nameErr = document.getElementById("name-err")
 let dateErr = document.getElementById("date-err")
+let postText = document.getElementById("post")
+let postErr = document.getElementById("post-err")
 
 //calculator functionality
 calcButtons = document.getElementsByClassName("calc_num")
@@ -24,6 +26,15 @@ let myId = document.getElementById("my-id")
 let myMajor = document.getElementById("my-major")
 let myTitle = document.getElementById("my-title")
 let MyParagraph = document.getElementById("my-paragraph")
+
+
+let posts;
+if(JSON.parse(localStorage.getItem('posts')) ){
+    posts = JSON.parse(localStorage.getItem('posts')) 
+}else{
+    posts =[]
+}
+console.log(posts)
 
 
 //form submit
@@ -48,6 +59,8 @@ function submitForm(event) {
     console.log(hours.value)
     console.log(isHours(hours.value))
     hoursCheck = isHours(hours.value)
+
+    postCheck = postText.value.length > 0
 
     //run each check individually to update error messages
     if (capCheck == false) {
@@ -74,21 +87,30 @@ function submitForm(event) {
         hoursErr.classList.remove("err-true")
         hoursErr.classList.add("err-false")
     }
+    if (postCheck == false) {
+        console.log("POST ERR")
+        postErr.classList.remove("err-false")
+        postErr.classList.add("err-true")
+    } else {
+        postErr.classList.remove("err-true")
+        postErr.classList.add("err-false")
+    }
     //check if all pass
-    if (capCheck && dateCheck && hoursCheck) {
+    if (capCheck && dateCheck && hoursCheck && postCheck) {
         console.log("ALL GOOD")
         document.body.classList.remove('bad-form')
         //alert using template literal for formatting
-        alert(
-`Name: ${names.value}
-Date: ${date.value}
-Calulator Value: ${calcText.value} 
-Hours Worked: ${hours.value} 
-My Name: ${myName.innerHTML.innerHTML}
-My Major: ${myMajor.innerHTML}
+        post = 
+`My Name: ${myName.innerHTML.innerHTML}
 ${myId.innerHTML}
-${myTitle.innerHTML} 
-${MyParagraph.innerHTML}`);
+My Major: ${myMajor.innerHTML}
+
+Task Name: ${names.value}
+Date: ${date.value}
+
+${postText.value}`;
+posts.push(post)
+localStorage.setItem("posts", JSON.stringify(posts))
     } else {
         document.body.classList.add('bad-form')
     }

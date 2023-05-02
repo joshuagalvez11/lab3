@@ -10,6 +10,27 @@
 </head>
 
 <body>
+
+    <body>
+        <nav>
+            <table id="navTable">
+                <tr>
+                <td class="linked"><a href="./about-me.html">About Me</a></td>
+                <td class="linked"><a href="./form.html">Post</a></td>
+                <td class="linked"><a href="./blog.html">Blog</a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="empty"><a> </a></td>
+                <td class="linked"><a href="../../index.html">Login/Register</a></td>
+            </tr>
+            </table>
+        </nav>
+
     <form id="form">
         <label for="name">Name:</label><br>
         <input type="text" id="name" name="name" value="Your Name "><br>
@@ -56,10 +77,16 @@
 
         <label for="hours">Hours Worked This Week:</label><br>
         <input type="text" id="hours" name="hours" value="0">
+        <br>
 
         <h4 class="err-false" id="hours-err">Not valid number of hours worked</h1>
         <br>
+
+        <label for="post">Post:</label><br>
+        <input type="text" id="post" name="post" value="">
+        <h4 class="err-false" id="post-err">Post can not be empty</h1>
         
+        <br><br>
         <input type="submit" value="Submit">
         
 
